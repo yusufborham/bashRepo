@@ -1,0 +1,13 @@
+#!/bin/bash
+
+dir="$1"
+lines="${2:-10}"
+
+if [ ! -d $dir ]
+then 
+        echo "no such directory "
+else 
+        du -ah $dir | sort -rh > sizeFile.txt 
+        head -n $lines sizeFile.txt
+        rm sizeFile.txt
+fi  
